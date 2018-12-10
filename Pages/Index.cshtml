@@ -1,0 +1,35 @@
+@page
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>SO53654020</title>
+</head>
+
+<body>
+    <h1>Logged in</h1>
+    <h2>@User.Identity.Name</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var userClaim in User.Claims)
+        {
+            <tr>
+                <td>@userClaim.Type</td>
+                <td>@userClaim.Value</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</body>
+</html>
