@@ -26,7 +26,7 @@ namespace SO53654020
                 });
 
             serviceCollection.AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddRazorPagesOptions(o => o.Conventions.AuthorizePage("/Index"));
         }
 
