@@ -26,7 +26,7 @@ namespace SO53654020.Controllers
 
             var claimsIdentity = new ClaimsIdentity(Constants.ApplicationScheme);
 
-            claimsIdentity.AddClaim(authenticateResult.Principal.FindFirst(ClaimTypes.NameIdentifier));
+            claimsIdentity.AddClaim(authenticateResult.Principal.FindFirst(ClaimTypes.Name));
             claimsIdentity.AddClaim(authenticateResult.Principal.FindFirst(ClaimTypes.Email));
 
             await HttpContext.SignInAsync(
