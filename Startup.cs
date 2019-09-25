@@ -25,16 +25,25 @@ namespace SO53654020
                 });
 
             serviceCollection.AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                 .AddRazorPagesOptions(o => o.Conventions.AuthorizePage("/Index"));
         }
 
-        public void Configure(IApplicationBuilder applicationBuilder, IHostingEnvironment hostingEnvironment)
+        public void Configure(IApplicationBuilder applicationBuilder)
         {
             applicationBuilder.UseDeveloperExceptionPage();
             applicationBuilder.UseHttpsRedirection();
+
+            applicationBuilder.UseRouting();
+
             applicationBuilder.UseAuthentication();
-            applicationBuilder.UseMvcWithDefaultRoute();
+            applicationBuilder.UseAuthorization();
+
+            applicationBuilder.UseEndpoints(endpointRouteBuilder =>
+            {
+                endpointRouteBuilder.MapDefaultControllerRoute();
+                endpointRouteBuilder.MapRazorPages();
+            });
         }
     }
 }
