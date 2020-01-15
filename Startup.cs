@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using SO53654020.Infrastructure;
 
@@ -25,7 +23,6 @@ namespace SO53654020
                 });
 
             serviceCollection.AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                 .AddRazorPagesOptions(o => o.Conventions.AuthorizePage("/Index"));
         }
 
